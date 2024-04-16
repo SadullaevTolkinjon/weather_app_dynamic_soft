@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:weather_app_dynamic/data/api/main_api.dart';
 
-
 @Injectable()
 class MainRepository {
   final MainApi _mainApi;
@@ -16,7 +15,8 @@ class MainRepository {
     return list;
   }
 
- 
+  fetchCurrentWeather() async {}
+
   // Future<List<Stat>> getStats(int page, int size) async {
   //   final response = await _mainApi.getStats(page, size);
   //   Iterable list = jsonDecode(response.body);
