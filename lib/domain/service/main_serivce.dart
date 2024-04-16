@@ -10,7 +10,7 @@ class MainService {
   MainService(this._mainApi);
 
   fetchSavedBooks() async {
-    final response = await _mainApi.getCategory();
+    final response = await _mainApi.fetchCurrentWeather();
     var data = jsonDecode(response.body);
     return data;
   }

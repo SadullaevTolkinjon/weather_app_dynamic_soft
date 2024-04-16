@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_http_logger/pretty_http_logger.dart';
+import 'package:weather_app_dynamic/constants/api/api_const.dart';
 import 'package:weather_app_dynamic/domain/model/expections/invalid_credentials_exceptions.dart';
 
 @Injectable()
@@ -11,7 +12,7 @@ class Api {
 
   // Api(this._token);
 
-  final _host = "api.takhfid.uz";
+  final _host = AppUrl.baseUrl;
   final _root = "";
 
   final _timeout = const Duration(seconds: 15);
@@ -63,11 +64,6 @@ class Api {
     final headers = <String, String>{
       "Content-Type": "application/json; charset=UTF-8"
     };
-
-    // final token = await _token.get();
-    // if (token != null) {
-    //   headers["token"] = token;
-    // }
 
     return headers;
   }

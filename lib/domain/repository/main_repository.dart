@@ -9,13 +9,16 @@ class MainRepository {
 
   MainRepository(this._mainApi);
   getCategories() async {
-    final response = await _mainApi.getCategory();
+    final response = await _mainApi.fetchCurrentWeather();
     var data = jsonDecode(response.body);
     Iterable list = data["result"];
     return list;
   }
 
-  fetchCurrentWeather() async {}
+  Future fetchCurrentWeather() async {
+    final response = await _mainApi.fetchCurrentWeather();
+    return jsonDecode(response.body);
+  }
 
   // Future<List<Stat>> getStats(int page, int size) async {
   //   final response = await _mainApi.getStats(page, size);
@@ -58,15 +61,6 @@ class MainRepository {
   //     code,
   //   );
   //   return Purchase.fromJson(jsonDecode(response.body));
-  // }
-
-  // Future<Customer> createCustomer(
-  //   String phone,
-  //   String name,
-  //   String surname,
-  // ) async {
-  //   final response = await _mainApi.createCustomer(phone, name, surname);
-  //   return Customer.fromJson(jsonDecode(response.body));
   // }
 
   // Future<Customer> addCustomer(String id) async {

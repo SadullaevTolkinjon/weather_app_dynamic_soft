@@ -9,7 +9,9 @@ part 'home_cubit.freezed.dart';
 @injectable
 class HomeCubit extends BuildableCubit<HomeState, HomeBuildableState> {
   final MainRepository _repository;
-  HomeCubit(this._repository) : super(const HomeBuildableState());
+  HomeCubit(this._repository) : super(const HomeBuildableState()) {
+    fetchCurrentWeather();
+  }
 
   changeTabs(int index) {
     build(
