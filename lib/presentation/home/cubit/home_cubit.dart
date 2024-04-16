@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:weather_app_dynamic/domain/repository/main_repository.dart';
-import 'package:weather_app_dynamic/presentation/widgets/buildable_cubit.dart';
+import 'package:weather_app_dynamic/utils/app_widgets/buildable_cubit.dart';
 
 part 'home_state.dart';
 part 'home_cubit.freezed.dart';

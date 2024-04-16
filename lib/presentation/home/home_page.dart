@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_dynamic/presentation/home/cubit/home_cubit.dart';
 import 'package:weather_app_dynamic/presentation/home/home_view.dart';
-import 'package:weather_app_dynamic/presentation/widgets/buildable.dart';
+import 'package:weather_app_dynamic/utils/app_widgets/buildable.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

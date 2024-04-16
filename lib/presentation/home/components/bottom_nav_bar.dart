@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app_dynamic/presentation/home/cubit/home_cubit.dart';
 
-import '../../widgets/buildable.dart';
+import '../../../utils/app_widgets/buildable.dart';
+
 
 builtBottomBar() {
   return Buildable<HomeCubit, HomeState, HomeBuildableState>(
