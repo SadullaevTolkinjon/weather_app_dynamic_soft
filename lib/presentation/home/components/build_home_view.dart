@@ -4,6 +4,8 @@ import 'package:weather_app_dynamic/presentation/home/home_view.dart';
 import 'package:weather_app_dynamic/presentation/profile/profile_page.dart';
 
 buildHomeUi(int index) {
+
+
   switch (index) {
     case 0:
       return const HomeView();

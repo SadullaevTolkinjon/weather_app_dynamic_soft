@@ -7,11 +7,12 @@ class TokenPreference {
 
   TokenPreference(this._sharedPreferences);
   final String _key = "token";
+  final String _token = "4d64fa8fc55eb7e6bd10a7543870c357";
   set(String value) async {
     await _sharedPreferences.setString(_key, value);
   }
 
-  get() async {
-    return _sharedPreferences.getString(_key);
+  getToken() async {
+    return _token;
   }
 }

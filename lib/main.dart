@@ -7,7 +7,7 @@ import 'package:weather_app_dynamic/utils/router/router.dart';
 import 'package:weather_app_dynamic/utils/theme/main_theme.dart';
 
 void main() async {
-  init();
+  await init();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -46,12 +46,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-/// flutter run -d windows
-/// flutter build apk --release
-/// flutter build apk --split-per-abi
-/// flutter build appbundle --release
-/// flutter pub run build_runner watch --delete-conflicting-outputs
-/// flutter pub run build_runner build --delete-conflicting-outputs
-/// flutter pub ipa
-/// flutter gen-l10n

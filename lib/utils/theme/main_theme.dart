@@ -5,7 +5,6 @@ class MainTheme {
   static const Color _whiteColor = Colors.white;
   static const Color _blackColor = Color(0xff242424);
 
-
   static ThemeData light = ThemeData(
     // ? FontFamily
 
@@ -16,7 +15,6 @@ class MainTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        
         textStyle: const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w600,
@@ -37,11 +35,15 @@ class MainTheme {
     // ? Appbars Style
 
     appBarTheme: const AppBarTheme(
-        foregroundColor: _blackColor,
-        backgroundColor: _whiteColor,
-        elevation: 2,
-        titleTextStyle: TextStyle(
-            fontSize: 18, fontWeight: FontWeight.w600, color: _blackColor)),
+      foregroundColor: _blackColor,
+      backgroundColor: _whiteColor,
+      elevation: 2,
+      titleTextStyle: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: _blackColor,
+      ),
+    ),
 
     // ? Scaffold background Color
 
