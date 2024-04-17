@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MainTheme.light,
       onGenerateRoute: OngenerateRoutes.instance.routeGenerator,
-      initialRoute: NavigatorConst.home,
+      initialRoute: NavigatorConst.splash,
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(

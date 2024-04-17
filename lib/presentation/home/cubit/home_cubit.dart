@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:weather_app_dynamic/domain/model/weather_model/weather_model.dart';
 import 'package:weather_app_dynamic/domain/repository/main_repository.dart';
 import 'package:weather_app_dynamic/utils/app_widgets/buildable_cubit.dart';
 
@@ -23,7 +24,7 @@ class HomeCubit extends BuildableCubit<HomeState, HomeBuildableState> {
     build((buildable) =>
         buildable.copyWith(loading: true, failed: false, success: false));
     try {
-      final data = _repository.getCategories();
+      final WeatherModel data = await _repository.fetchCurrentWeather();
       build((buildable) =>
           buildable.copyWith(loading: false, failed: false, success: true));
     } catch (e) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_dynamic/constants/navigator/navigator_const.dart';
 import 'package:weather_app_dynamic/presentation/home/home_page.dart';
+import 'package:weather_app_dynamic/presentation/initial_screen/initial_page.dart';
+import 'package:weather_app_dynamic/presentation/splash/splash_page.dart';
 
 class OngenerateRoutes {
   static final OngenerateRoutes _instance = OngenerateRoutes._init();
@@ -14,6 +16,10 @@ class OngenerateRoutes {
     switch (settings.name) {
       case NavigatorConst.home:
         return sampleRoute(const HomePage());
+      case NavigatorConst.initialScreeen:
+        return sampleRoute(const InitialScreenPage());
+      case NavigatorConst.splash:
+        return sampleRoute(const SplashPage());
     }
     return null;
   }

@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
         title: Text(
           "Home app bar",
           style: AppTextStyle.s16.copyWith(
-            color: ColorConstants.kPrimiaryText,
+            color: AppColor.kPrimiaryText,
           ),
         ),
       ),

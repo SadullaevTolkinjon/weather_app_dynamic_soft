@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ColorConstants {
+class AppColor {
   static Color kPrimiaryText = const Color(0XFF44495B);
   static Color black1 = const Color(0XFF2C2F3B);
   static Color black = const Color(0XFF000000);
   static Color white = const Color(0XFFFFFFFF);
-  static Color boxShadow1 = const Color.fromARGB(0, 0, 0,6);
+  static Color boxShadow1 = const Color.fromARGB(0, 0, 0, 6);
   static Color grey = const Color(0XFFF7F7F9);
   static Color blue = const Color(0XFF24B0ED);
   static Color green = const Color(0XFF67C926);
@@ -16,5 +16,7 @@ class ColorConstants {
   static Color blue300 = const Color(0XFF24B0ED);
   static Color grey100 = const Color(0XFF9196AD);
   static Color green2 = const Color(0XFFE8F7DF);
-  static Color backgroundColor = const Color(0xffF5F5F5);
+  static Color kPrimaryColor = const Color(0XFF2E335A);
+  static Color kPrimaryColor2 = const Color(0XFF1C1B33);
+  static Color yellow = const Color(0XFFDDB130);
 }

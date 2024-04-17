@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/color/color_const.dart';
+
 // Our design contains Neumorphism design and i made a extention for it
 // We can apply it on any  widget
 
@@ -40,6 +42,32 @@ extension EmptySpace on num {
         height: toDouble(),
       );
   SizedBox get width => SizedBox(
-        height: toDouble(),
+        width: toDouble(),
       );
+}
+
+extension CustomBody on Widget {
+  build({
+    double height = 0.0,
+    double width = 0.0,
+    Alignment alignment = Alignment.center,
+    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 0),
+  }) {
+    return Container(
+      height: height,
+      width: width,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColor.kPrimaryColor,
+            AppColor.kPrimaryColor2,
+          ],
+        ),
+      ),
+      padding: padding,
+      child: this,
+    );
+  }
 }

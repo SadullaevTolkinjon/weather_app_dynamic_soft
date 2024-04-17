@@ -13,12 +13,9 @@ class MainApi {
       "lat": 41.311081,
       "lon": 69.240562,
       "exclude": "current",
-      "appid": "aad4e73b86891194b52b8a7371f2eb6c"
+      "APPID": "aad4e73b86891194b52b8a7371f2eb6c"
     };
-    var data = await _api.get(
-      path: 'data/2.5/weather?q=London,uk&APPID=aad4e73b86891194b52b8a7371f2eb6c',
-     
-    );
+    var data = await _api.get(path: '/weather', params: params);
     return data;
   }
 }
