@@ -61,7 +61,10 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i10.MainApi>(),
           gh<_i6.MainPreference>(),
         ));
-    gh.factory<_i13.HomeCubit>(() => _i13.HomeCubit(gh<_i11.MainRepository>()));
+    gh.factory<_i13.HomeCubit>(() => _i13.HomeCubit(
+          gh<_i11.MainRepository>(),
+          gh<_i6.MainPreference>(),
+        ));
     return this;
   }
 }

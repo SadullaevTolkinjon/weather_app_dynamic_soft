@@ -22,9 +22,9 @@ mixin _$HomeBuildableState {
   bool get failed => throw _privateConstructorUsedError;
   dynamic get error => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
-  bool get isUser => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
   List<dynamic> get data => throw _privateConstructorUsedError;
+  int get selected_forecast => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeBuildableStateCopyWith<HomeBuildableState> get copyWith =>
@@ -44,9 +44,9 @@ abstract class $HomeBuildableStateCopyWith<$Res> {
       bool failed,
       dynamic error,
       bool isSuccess,
-      bool isUser,
       int currentIndex,
-      List<dynamic> data});
+      List<dynamic> data,
+      int selected_forecast});
 }
 
 /// @nodoc
@@ -68,9 +68,9 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
     Object? failed = null,
     Object? error = freezed,
     Object? isSuccess = null,
-    Object? isUser = null,
     Object? currentIndex = null,
     Object? data = null,
+    Object? selected_forecast = null,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -97,10 +97,6 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
           ? _value.isSuccess
           : isSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
-      isUser: null == isUser
-          ? _value.isUser
-          : isUser // ignore: cast_nullable_to_non_nullable
-              as bool,
       currentIndex: null == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
@@ -109,6 +105,10 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      selected_forecast: null == selected_forecast
+          ? _value.selected_forecast
+          : selected_forecast // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -128,9 +128,9 @@ abstract class _$$HomeBuildableStateImplCopyWith<$Res>
       bool failed,
       dynamic error,
       bool isSuccess,
-      bool isUser,
       int currentIndex,
-      List<dynamic> data});
+      List<dynamic> data,
+      int selected_forecast});
 }
 
 /// @nodoc
@@ -150,9 +150,9 @@ class __$$HomeBuildableStateImplCopyWithImpl<$Res>
     Object? failed = null,
     Object? error = freezed,
     Object? isSuccess = null,
-    Object? isUser = null,
     Object? currentIndex = null,
     Object? data = null,
+    Object? selected_forecast = null,
   }) {
     return _then(_$HomeBuildableStateImpl(
       loading: null == loading
@@ -179,10 +179,6 @@ class __$$HomeBuildableStateImplCopyWithImpl<$Res>
           ? _value.isSuccess
           : isSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
-      isUser: null == isUser
-          ? _value.isUser
-          : isUser // ignore: cast_nullable_to_non_nullable
-              as bool,
       currentIndex: null == currentIndex
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
@@ -191,6 +187,10 @@ class __$$HomeBuildableStateImplCopyWithImpl<$Res>
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      selected_forecast: null == selected_forecast
+          ? _value.selected_forecast
+          : selected_forecast // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -205,9 +205,9 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
       this.failed = false,
       this.error,
       this.isSuccess = false,
-      this.isUser = false,
       this.currentIndex = 0,
-      final List<dynamic> data = const []})
+      final List<dynamic> data = const [],
+      this.selected_forecast = 0})
       : _data = data;
 
   @override
@@ -229,9 +229,6 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
   final bool isSuccess;
   @override
   @JsonKey()
-  final bool isUser;
-  @override
-  @JsonKey()
   final int currentIndex;
   final List<dynamic> _data;
   @override
@@ -243,8 +240,12 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
   }
 
   @override
+  @JsonKey()
+  final int selected_forecast;
+
+  @override
   String toString() {
-    return 'HomeBuildableState(loading: $loading, isModal_hud: $isModal_hud, success: $success, failed: $failed, error: $error, isSuccess: $isSuccess, isUser: $isUser, currentIndex: $currentIndex, data: $data)';
+    return 'HomeBuildableState(loading: $loading, isModal_hud: $isModal_hud, success: $success, failed: $failed, error: $error, isSuccess: $isSuccess, currentIndex: $currentIndex, data: $data, selected_forecast: $selected_forecast)';
   }
 
   @override
@@ -260,10 +261,11 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
             const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.isSuccess, isSuccess) ||
                 other.isSuccess == isSuccess) &&
-            (identical(other.isUser, isUser) || other.isUser == isUser) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.selected_forecast, selected_forecast) ||
+                other.selected_forecast == selected_forecast));
   }
 
   @override
@@ -275,9 +277,9 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
       failed,
       const DeepCollectionEquality().hash(error),
       isSuccess,
-      isUser,
       currentIndex,
-      const DeepCollectionEquality().hash(_data));
+      const DeepCollectionEquality().hash(_data),
+      selected_forecast);
 
   @JsonKey(ignore: true)
   @override
@@ -295,9 +297,9 @@ abstract class _HomeBuildableState implements HomeBuildableState {
       final bool failed,
       final dynamic error,
       final bool isSuccess,
-      final bool isUser,
       final int currentIndex,
-      final List<dynamic> data}) = _$HomeBuildableStateImpl;
+      final List<dynamic> data,
+      final int selected_forecast}) = _$HomeBuildableStateImpl;
 
   @override
   bool get loading;
@@ -312,11 +314,11 @@ abstract class _HomeBuildableState implements HomeBuildableState {
   @override
   bool get isSuccess;
   @override
-  bool get isUser;
-  @override
   int get currentIndex;
   @override
   List<dynamic> get data;
+  @override
+  int get selected_forecast;
   @override
   @JsonKey(ignore: true)
   _$$HomeBuildableStateImplCopyWith<_$HomeBuildableStateImpl> get copyWith =>

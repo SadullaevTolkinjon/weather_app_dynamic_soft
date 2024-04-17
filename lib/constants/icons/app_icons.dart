@@ -1,3 +1,3 @@
 class AppIcons {
-  static const String cloud = "";
+  static const String cloudy = "assets/images/cloudy.png";
 }
