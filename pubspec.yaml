@@ -38,6 +38,8 @@ dependencies:
   geolocator: ^11.0.0
   flutter_svg: ^2.0.10+1
   websafe_svg: ^3.0.1+1
+  fluttertoast: ^8.2.5
+  connectivity_plus: ^6.0.2
 
 dev_dependencies:
   flutter_test:

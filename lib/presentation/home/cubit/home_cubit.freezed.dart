@@ -23,8 +23,8 @@ mixin _$HomeBuildableState {
   dynamic get error => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
-  List<dynamic> get data => throw _privateConstructorUsedError;
   int get selected_forecast => throw _privateConstructorUsedError;
+  WeatherModel? get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeBuildableStateCopyWith<HomeBuildableState> get copyWith =>
@@ -45,8 +45,10 @@ abstract class $HomeBuildableStateCopyWith<$Res> {
       dynamic error,
       bool isSuccess,
       int currentIndex,
-      List<dynamic> data,
-      int selected_forecast});
+      int selected_forecast,
+      WeatherModel? data});
+
+  $WeatherModelCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -69,8 +71,8 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
     Object? error = freezed,
     Object? isSuccess = null,
     Object? currentIndex = null,
-    Object? data = null,
     Object? selected_forecast = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -101,15 +103,27 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
       selected_forecast: null == selected_forecast
           ? _value.selected_forecast
           : selected_forecast // ignore: cast_nullable_to_non_nullable
               as int,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as WeatherModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WeatherModelCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $WeatherModelCopyWith<$Res>(_value.data!, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -129,8 +143,11 @@ abstract class _$$HomeBuildableStateImplCopyWith<$Res>
       dynamic error,
       bool isSuccess,
       int currentIndex,
-      List<dynamic> data,
-      int selected_forecast});
+      int selected_forecast,
+      WeatherModel? data});
+
+  @override
+  $WeatherModelCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -151,8 +168,8 @@ class __$$HomeBuildableStateImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? isSuccess = null,
     Object? currentIndex = null,
-    Object? data = null,
     Object? selected_forecast = null,
+    Object? data = freezed,
   }) {
     return _then(_$HomeBuildableStateImpl(
       loading: null == loading
@@ -183,14 +200,14 @@ class __$$HomeBuildableStateImplCopyWithImpl<$Res>
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      data: null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
       selected_forecast: null == selected_forecast
           ? _value.selected_forecast
           : selected_forecast // ignore: cast_nullable_to_non_nullable
               as int,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as WeatherModel?,
     ));
   }
 }
@@ -206,9 +223,8 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
       this.error,
       this.isSuccess = false,
       this.currentIndex = 0,
-      final List<dynamic> data = const [],
-      this.selected_forecast = 0})
-      : _data = data;
+      this.selected_forecast = 0,
+      this.data});
 
   @override
   @JsonKey()
@@ -230,22 +246,15 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
   @override
   @JsonKey()
   final int currentIndex;
-  final List<dynamic> _data;
-  @override
-  @JsonKey()
-  List<dynamic> get data {
-    if (_data is EqualUnmodifiableListView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_data);
-  }
-
   @override
   @JsonKey()
   final int selected_forecast;
+  @override
+  final WeatherModel? data;
 
   @override
   String toString() {
-    return 'HomeBuildableState(loading: $loading, isModal_hud: $isModal_hud, success: $success, failed: $failed, error: $error, isSuccess: $isSuccess, currentIndex: $currentIndex, data: $data, selected_forecast: $selected_forecast)';
+    return 'HomeBuildableState(loading: $loading, isModal_hud: $isModal_hud, success: $success, failed: $failed, error: $error, isSuccess: $isSuccess, currentIndex: $currentIndex, selected_forecast: $selected_forecast, data: $data)';
   }
 
   @override
@@ -263,9 +272,9 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
                 other.isSuccess == isSuccess) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex) &&
-            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.selected_forecast, selected_forecast) ||
-                other.selected_forecast == selected_forecast));
+                other.selected_forecast == selected_forecast) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
@@ -278,8 +287,8 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
       const DeepCollectionEquality().hash(error),
       isSuccess,
       currentIndex,
-      const DeepCollectionEquality().hash(_data),
-      selected_forecast);
+      selected_forecast,
+      data);
 
   @JsonKey(ignore: true)
   @override
@@ -298,8 +307,8 @@ abstract class _HomeBuildableState implements HomeBuildableState {
       final dynamic error,
       final bool isSuccess,
       final int currentIndex,
-      final List<dynamic> data,
-      final int selected_forecast}) = _$HomeBuildableStateImpl;
+      final int selected_forecast,
+      final WeatherModel? data}) = _$HomeBuildableStateImpl;
 
   @override
   bool get loading;
@@ -316,9 +325,9 @@ abstract class _HomeBuildableState implements HomeBuildableState {
   @override
   int get currentIndex;
   @override
-  List<dynamic> get data;
-  @override
   int get selected_forecast;
+  @override
+  WeatherModel? get data;
   @override
   @JsonKey(ignore: true)
   _$$HomeBuildableStateImplCopyWith<_$HomeBuildableStateImpl> get copyWith =>

@@ -12,7 +12,7 @@ class HomeBuildableState extends HomeState with _$HomeBuildableState {
     dynamic error,
     @Default(false) bool isSuccess,
     @Default(0) int currentIndex,
-    @Default([]) List data,
     @Default(0) int selected_forecast,
+    WeatherModel? data,
   }) = _HomeBuildableState;
 }

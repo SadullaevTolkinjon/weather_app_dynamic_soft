@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:weather_app_dynamic/data/preferences/main_preference.dart';
@@ -24,20 +27,60 @@ class HomeCubit extends BuildableCubit<HomeState, HomeBuildableState> {
   }
 
   fetchCurrentWeather() async {
-    build((buildable) =>
-        buildable.copyWith(loading: true, failed: false, success: false));
+    final List<ConnectivityResult> connectivityResult =
+        await (Connectivity().checkConnectivity());
+        print("------------------------------");
+        print(connectivityResult);
+    build(
+      (buildable) =>
+          buildable.copyWith(loading: true, failed: false, success: false),
+    );
     try {
-      final WeatherModel data = await _repository.fetchCurrentWeather();
-      await _preference.setWeatherData(data);
-      build((buildable) =>
-          buildable.copyWith(loading: false, failed: false, success: true));
+      if (connectivityResult.contains(ConnectivityResult.none)) {
+        print("ishere-----------------");
+        String? localData = await _preference.getWeatherData();
+        if (localData != null) {
+          var decodedData = jsonDecode(localData);
+          final WeatherModel weather = WeatherModel.fromJson(decodedData);
+          build((buildable) => buildable.copyWith(
+              data: weather, loading: false, success: true, failed: false));
+        } else {
+          print("elseeeeeeee");
+          build((buildable) => buildable.copyWith(
+              loading: false,
+              success: false,
+              failed: true,
+              error: "Check your network connection"));
+        }
+      } else {
+        try {
+          final WeatherModel data = await _repository.fetchCurrentWeather();
+          await _preference.setWeatherData(data);
+          build((buildable) => buildable.copyWith(
+              loading: false, failed: false, success: true, data: data));
+        } catch (e) {
+          build((buildable) => buildable.copyWith(
+              loading: false,
+              failed: true,
+              success: false,
+              error: e.toString()));
+        }
+      }
     } catch (e) {
-      build((buildable) =>
-          buildable.copyWith(loading: false, failed: true, success: false));
+      build(
+        (buildable) => buildable.copyWith(
+            loading: false, failed: true, success: false, error: e.toString()),
+      );
     }
   }
 
   selectHourlyWeeklyForecast(int index) {
-    build((buildable) => buildable.copyWith(selected_forecast: index));
+    build(
+      (buildable) => buildable.copyWith(
+        selected_forecast: index,
+        failed: false,
+        success: false,
+      ),
+    );
   }
 }

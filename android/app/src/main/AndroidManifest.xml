@@ -2,7 +2,7 @@
 <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:label="package:weather_app_dynamic"
+        android:label="weather_app_dynamic"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
