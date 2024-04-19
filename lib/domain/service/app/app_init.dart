@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:weather_app_dynamic/di/injection.dart';
 
@@ -32,6 +33,7 @@ class AppProviders extends AppProvidersService {
 class AppServiceInit implements AppService {
   @override
   Future appInit() async {
+    await dotenv.load(fileName: ".env");
     WidgetsFlutterBinding.ensureInitialized();
     // await LocalDataService.init();
     await configureDependencies();

@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../constants/color/color_const.dart';
 
-// Our design contains Neumorphism design and i made a extention for it
-// We can apply it on any  widget
-
 extension Neumorphism on Widget {
   addNeumorphism({
     double borderRadius = 10.0,
@@ -34,9 +31,6 @@ extension Neumorphism on Widget {
   }
 }
 
-// Our design contains Neumorphism design and i made a extention for it
-// We can apply it on any  widget
-
 extension EmptySpace on num {
   SizedBox get height => SizedBox(
         height: toDouble(),
@@ -48,8 +42,8 @@ extension EmptySpace on num {
 
 extension CustomBody on Widget {
   build({
-    double height = 0.0,
-    double width = 0.0,
+    double height = double.infinity,
+    double width = double.infinity,
     Alignment alignment = Alignment.center,
     EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 0),
   }) {
@@ -69,5 +63,29 @@ extension CustomBody on Widget {
       padding: padding,
       child: this,
     );
+  }
+}
+
+extension ConvertTime on String {
+  convert(String dateTime) {
+    DateTime time = DateTime.parse(dateTime);
+    switch (time.weekday) {
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Friday';
+      case 6:
+        return 'Saturday';
+      case 7:
+        return 'Sunday';
+      default:
+        return '';
+    }
   }
 }

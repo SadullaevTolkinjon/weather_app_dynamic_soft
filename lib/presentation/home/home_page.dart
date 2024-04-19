@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app_dynamic/di/injection.dart';
+import 'package:weather_app_dynamic/presentation/home/components/bottom_nav_bar.dart';
 import 'package:weather_app_dynamic/presentation/home/cubit/home_cubit.dart';
 import 'package:weather_app_dynamic/presentation/home/home_view.dart';
+import 'package:weather_app_dynamic/presentation/search/search_page.dart';
 import 'package:weather_app_dynamic/presentation/widgets/snacbar_widgets.dart';
+import 'package:weather_app_dynamic/utils/app_widgets/buildable.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,17 +15,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocListener<HomeCubit, HomeState>(
-        listener: (context, state) {
-          if (state is HomeBuildableState) {
-            
-            if (state.failed == true) {
-              SnackbarWidgets.showError("Something went wrong");
-            }
-          }
+      body: Buildable<HomeCubit, HomeState, HomeBuildableState>(
+        properties: (buildable) => [buildable.currentIndex],
+        builder: (context, state) {
+          return IndexedStack(
+            index: state.currentIndex,
+            children: const [
+              HomeView(),
+              SearchPage(),
+            ],
+          );
         },
-        child: const HomeView(),
       ),
+      bottomNavigationBar: builtBottomBar(),
     );
   }
 }

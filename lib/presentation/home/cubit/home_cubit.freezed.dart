@@ -24,7 +24,10 @@ mixin _$HomeBuildableState {
   bool get isSuccess => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
   int get selected_forecast => throw _privateConstructorUsedError;
+  bool get isConnected => throw _privateConstructorUsedError;
+  bool get noLocalData => throw _privateConstructorUsedError;
   WeatherModel? get data => throw _privateConstructorUsedError;
+  WeeklyWeatherModel? get weeklyWeather => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeBuildableStateCopyWith<HomeBuildableState> get copyWith =>
@@ -46,9 +49,13 @@ abstract class $HomeBuildableStateCopyWith<$Res> {
       bool isSuccess,
       int currentIndex,
       int selected_forecast,
-      WeatherModel? data});
+      bool isConnected,
+      bool noLocalData,
+      WeatherModel? data,
+      WeeklyWeatherModel? weeklyWeather});
 
   $WeatherModelCopyWith<$Res>? get data;
+  $WeeklyWeatherModelCopyWith<$Res>? get weeklyWeather;
 }
 
 /// @nodoc
@@ -72,7 +79,10 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
     Object? isSuccess = null,
     Object? currentIndex = null,
     Object? selected_forecast = null,
+    Object? isConnected = null,
+    Object? noLocalData = null,
     Object? data = freezed,
+    Object? weeklyWeather = freezed,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -107,10 +117,22 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
           ? _value.selected_forecast
           : selected_forecast // ignore: cast_nullable_to_non_nullable
               as int,
+      isConnected: null == isConnected
+          ? _value.isConnected
+          : isConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noLocalData: null == noLocalData
+          ? _value.noLocalData
+          : noLocalData // ignore: cast_nullable_to_non_nullable
+              as bool,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as WeatherModel?,
+      weeklyWeather: freezed == weeklyWeather
+          ? _value.weeklyWeather
+          : weeklyWeather // ignore: cast_nullable_to_non_nullable
+              as WeeklyWeatherModel?,
     ) as $Val);
   }
 
@@ -123,6 +145,18 @@ class _$HomeBuildableStateCopyWithImpl<$Res, $Val extends HomeBuildableState>
 
     return $WeatherModelCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WeeklyWeatherModelCopyWith<$Res>? get weeklyWeather {
+    if (_value.weeklyWeather == null) {
+      return null;
+    }
+
+    return $WeeklyWeatherModelCopyWith<$Res>(_value.weeklyWeather!, (value) {
+      return _then(_value.copyWith(weeklyWeather: value) as $Val);
     });
   }
 }
@@ -144,10 +178,15 @@ abstract class _$$HomeBuildableStateImplCopyWith<$Res>
       bool isSuccess,
       int currentIndex,
       int selected_forecast,
-      WeatherModel? data});
+      bool isConnected,
+      bool noLocalData,
+      WeatherModel? data,
+      WeeklyWeatherModel? weeklyWeather});
 
   @override
   $WeatherModelCopyWith<$Res>? get data;
+  @override
+  $WeeklyWeatherModelCopyWith<$Res>? get weeklyWeather;
 }
 
 /// @nodoc
@@ -169,7 +208,10 @@ class __$$HomeBuildableStateImplCopyWithImpl<$Res>
     Object? isSuccess = null,
     Object? currentIndex = null,
     Object? selected_forecast = null,
+    Object? isConnected = null,
+    Object? noLocalData = null,
     Object? data = freezed,
+    Object? weeklyWeather = freezed,
   }) {
     return _then(_$HomeBuildableStateImpl(
       loading: null == loading
@@ -204,10 +246,22 @@ class __$$HomeBuildableStateImplCopyWithImpl<$Res>
           ? _value.selected_forecast
           : selected_forecast // ignore: cast_nullable_to_non_nullable
               as int,
+      isConnected: null == isConnected
+          ? _value.isConnected
+          : isConnected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noLocalData: null == noLocalData
+          ? _value.noLocalData
+          : noLocalData // ignore: cast_nullable_to_non_nullable
+              as bool,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as WeatherModel?,
+      weeklyWeather: freezed == weeklyWeather
+          ? _value.weeklyWeather
+          : weeklyWeather // ignore: cast_nullable_to_non_nullable
+              as WeeklyWeatherModel?,
     ));
   }
 }
@@ -224,7 +278,10 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
       this.isSuccess = false,
       this.currentIndex = 0,
       this.selected_forecast = 0,
-      this.data});
+      this.isConnected = false,
+      this.noLocalData = false,
+      this.data,
+      this.weeklyWeather});
 
   @override
   @JsonKey()
@@ -250,11 +307,19 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
   @JsonKey()
   final int selected_forecast;
   @override
+  @JsonKey()
+  final bool isConnected;
+  @override
+  @JsonKey()
+  final bool noLocalData;
+  @override
   final WeatherModel? data;
+  @override
+  final WeeklyWeatherModel? weeklyWeather;
 
   @override
   String toString() {
-    return 'HomeBuildableState(loading: $loading, isModal_hud: $isModal_hud, success: $success, failed: $failed, error: $error, isSuccess: $isSuccess, currentIndex: $currentIndex, selected_forecast: $selected_forecast, data: $data)';
+    return 'HomeBuildableState(loading: $loading, isModal_hud: $isModal_hud, success: $success, failed: $failed, error: $error, isSuccess: $isSuccess, currentIndex: $currentIndex, selected_forecast: $selected_forecast, isConnected: $isConnected, noLocalData: $noLocalData, data: $data, weeklyWeather: $weeklyWeather)';
   }
 
   @override
@@ -274,7 +339,13 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
                 other.currentIndex == currentIndex) &&
             (identical(other.selected_forecast, selected_forecast) ||
                 other.selected_forecast == selected_forecast) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.isConnected, isConnected) ||
+                other.isConnected == isConnected) &&
+            (identical(other.noLocalData, noLocalData) ||
+                other.noLocalData == noLocalData) &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.weeklyWeather, weeklyWeather) ||
+                other.weeklyWeather == weeklyWeather));
   }
 
   @override
@@ -288,7 +359,10 @@ class _$HomeBuildableStateImpl implements _HomeBuildableState {
       isSuccess,
       currentIndex,
       selected_forecast,
-      data);
+      isConnected,
+      noLocalData,
+      data,
+      weeklyWeather);
 
   @JsonKey(ignore: true)
   @override
@@ -308,7 +382,10 @@ abstract class _HomeBuildableState implements HomeBuildableState {
       final bool isSuccess,
       final int currentIndex,
       final int selected_forecast,
-      final WeatherModel? data}) = _$HomeBuildableStateImpl;
+      final bool isConnected,
+      final bool noLocalData,
+      final WeatherModel? data,
+      final WeeklyWeatherModel? weeklyWeather}) = _$HomeBuildableStateImpl;
 
   @override
   bool get loading;
@@ -327,7 +404,13 @@ abstract class _HomeBuildableState implements HomeBuildableState {
   @override
   int get selected_forecast;
   @override
+  bool get isConnected;
+  @override
+  bool get noLocalData;
+  @override
   WeatherModel? get data;
+  @override
+  WeeklyWeatherModel? get weeklyWeather;
   @override
   @JsonKey(ignore: true)
   _$$HomeBuildableStateImplCopyWith<_$HomeBuildableStateImpl> get copyWith =>

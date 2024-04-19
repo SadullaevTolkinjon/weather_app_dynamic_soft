@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app_dynamic/constants/navigator/navigator_const.dart';
 import 'package:weather_app_dynamic/presentation/home/home_page.dart';
 import 'package:weather_app_dynamic/presentation/initial_screen/initial_page.dart';
+import 'package:weather_app_dynamic/presentation/search/search_page.dart';
 import 'package:weather_app_dynamic/presentation/splash/splash_page.dart';
 
 class OngenerateRoutes {
@@ -20,6 +21,8 @@ class OngenerateRoutes {
         return sampleRoute(const InitialScreenPage());
       case NavigatorConst.splash:
         return sampleRoute(const SplashPage());
+      case NavigatorConst.search:
+        return sampleRoute(const SearchPage());
     }
     return null;
   }

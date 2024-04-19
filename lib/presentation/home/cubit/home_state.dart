@@ -13,6 +13,9 @@ class HomeBuildableState extends HomeState with _$HomeBuildableState {
     @Default(false) bool isSuccess,
     @Default(0) int currentIndex,
     @Default(0) int selected_forecast,
+    @Default(false) bool isConnected,
+    @Default(false) bool noLocalData,
     WeatherModel? data,
+    WeeklyWeatherModel? weeklyWeather,
   }) = _HomeBuildableState;
 }

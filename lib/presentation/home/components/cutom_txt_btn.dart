@@ -23,11 +23,12 @@ class CustomTxtBtn extends StatelessWidget {
         title,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        textAlign: TextAlign.center,
+        textAlign: TextAlign.start,
         style: AppTextStyle.s16.copyWith(
-            color: isSelected ? AppColor.white : AppColor.kPrimiaryText,
-            fontSize: 18,
-            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400),
+          color: isSelected ? AppColor.white : AppColor.kPrimiaryText,
+          fontSize: 18,
+          fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+        ),
       ),
     );
   }

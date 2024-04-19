@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
@@ -12,12 +11,6 @@ class MainService {
   final MainApi _mainApi;
   final MainPreference _mainPreference;
   MainService(this._mainApi, this._mainPreference);
-
-  fetchSavedBooks() async {
-    final response = await _mainApi.fetchCurrentWeather();
-    var data = jsonDecode(response.body);
-    return data;
-  }
 
   navigate(BuildContext ctx) async {
     var initialScreen = await _mainPreference.getinitialScreen();

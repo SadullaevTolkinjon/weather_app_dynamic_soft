@@ -8,10 +8,6 @@ import 'package:weather_app_dynamic/domain/model/expections/invalid_credentials_
 
 @Injectable()
 class Api {
-  // final TokenPreference _token;
-
-  // Api(this._token);
-
   final _host = AppUrl.baseUrl;
   final _root = "/data/2.5";
 
@@ -72,17 +68,11 @@ class Api {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return response;
     }
-
     switch (response.statusCode) {
-      // case 404:
-      //   throw UserNotFoundException();
       case 403:
-        //await _token.clear();
         throw InvalidCredentialsExceptions();
-      // case 402:
-      //   throw NameUnavailableException();
       default:
-        throw Exception();
+        throw Exception([response.statusCode, response.body]);
     }
   }
 }

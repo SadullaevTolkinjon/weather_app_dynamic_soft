@@ -40,6 +40,9 @@ dependencies:
   websafe_svg: ^3.0.1+1
   fluttertoast: ^8.2.5
   connectivity_plus: ^6.0.2
+  custom_refresh_indicator: ^3.1.0
+  flutter_dotenv: ^5.1.0
+  searchfield: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +65,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - .env
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

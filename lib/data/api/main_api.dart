@@ -8,14 +8,31 @@ class MainApi {
   final Api _api;
   final TokenPreference _preference;
   MainApi(this._api, this._preference);
-  Future<Response> fetchCurrentWeather() async {
+
+  Future<Response> fetchCurrentWeather(
+      double lat, double long, String exclude) async {
+    final apikey = await _preference.getToken();
     final params = {
-      "lat": 41.311081,
-      "lon": 69.240562,
-      "exclude": "current",
-      "APPID": "aad4e73b86891194b52b8a7371f2eb6c"
+      "lat": lat,
+      "lon": long,
+      "units": "metric",
+      "exclude": "weekly",
+      "APPID": "$apikey",
     };
     var data = await _api.get(path: '/weather', params: params);
+    return data;
+  }
+
+  Future<Response> fetchWeeklyWeather(double lat, double long) async {
+    final apikey = await _preference.getToken();
+    final params = {
+      "lat": lat,
+      "lon": long,
+      "units": "metric",
+      "cnt": 50,
+      "APPID": "$apikey",
+    };
+    var data = await _api.get(path: 'forecast', params: params);
     return data;
   }
 }
