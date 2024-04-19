@@ -23,7 +23,8 @@ import '../domain/repository/auth/auth/auth_repository_implementation.dart'
 import '../domain/repository/main_repository.dart' as _i11;
 import '../domain/service/main_serivce.dart' as _i12;
 import '../presentation/home/cubit/home_cubit.dart' as _i13;
-import 'data_module.dart' as _i14;
+import '../presentation/search/cubit/search_cubit.dart' as _i14;
+import 'data_module.dart' as _i15;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -65,8 +66,10 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i11.MainRepository>(),
           gh<_i6.MainPreference>(),
         ));
+    gh.factory<_i14.SearchCubit>(
+        () => _i14.SearchCubit(gh<_i11.MainRepository>()));
     return this;
   }
 }
 
-class _$DataModule extends _i14.DataModule {}
+class _$DataModule extends _i15.DataModule {}

@@ -7,88 +7,76 @@ import 'package:weather_app_dynamic/presentation/home/components/weather_title.d
 import 'package:weather_app_dynamic/presentation/home/cubit/home_cubit.dart';
 import 'package:weather_app_dynamic/utils/extension/extensions.dart';
 
-import '../../di/injection.dart';
 import '../widgets/snacbar_widgets.dart';
-class HomeView extends StatelessWidget {
+
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  BlocProvider(
-        create: (context) {
-          var cubit = locator<HomeCubit>();
-
-          cubit.fetchCurrentWeather();
-          return cubit;
-        },
-        child: BlocListener<HomeCubit, HomeState>(
-          listener: (context, state) {
-            if (state is HomeBuildableState) {
-              if (state.failed == true) {
-                SnackbarWidgets.showError(state.error);
-              }
-              if (state.isConnected == true) {
-                SnackbarWidgets.showError(state.error);
-              }
-              if (state.isConnected == true && state.noLocalData == true) {
-                SnackbarWidgets.showError(state.error);
-              }
-            }
-          },
-          child:const HomeScreen()
-        ),
-      );
-  }
-}
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeViewState extends State<HomeView> {
   @override
-  void dispose() {
-    context.read<HomeCubit>().dispose();
-    super.dispose();
+  void initState() {
+   
+    super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(AppImages.background_image),
+      body: BlocListener<HomeCubit, HomeState>(
+        listener: (context, state) {
+          if (state is HomeBuildableState) {
+            if (state.failed == true) {
+              SnackbarWidgets.showError(state.error);
+            }
+            if (state.isConnected == true) {
+              SnackbarWidgets.showError(state.error);
+            }
+            if (state.isConnected == true && state.noLocalData == true) {
+              SnackbarWidgets.showError(state.error);
+            }
+          }
+        },
+        child: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(AppImages.background_image),
+            ),
           ),
-        ),
-        child: SafeArea(
-          bottom: false,
-          child: Stack(
-            children: [
-              const HouseImage(),
-              Positioned.fill(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      50.height,
-                      const WeatherTitle(),
-                      40.height,
-                      const AdditionallyWidgets(),
-                    ],
+          child: SafeArea(
+            bottom: false,
+            child: Stack(
+              children: [
+                const HouseImage(),
+                Positioned.fill(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        50.height,
+                        const WeatherTitle(),
+                        40.height,
+                        const AdditionallyWidgets(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
-    
     );
+  }
+
+  @override
+  void dispose() {
+ //  context.read<HomeCubit>().dispose();
+    super.dispose();
   }
 }

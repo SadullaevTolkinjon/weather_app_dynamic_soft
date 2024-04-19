@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_dynamic/constants/color/color_const.dart';
 import 'package:weather_app_dynamic/presentation/search/components/modal_bottom_sheet_view.dart';
 
 import 'package:weather_app_dynamic/presentation/search/components/search_textfield.dart';
@@ -20,9 +21,15 @@ class _SearchViewState extends State<SearchView> {
           SearchTextfield(
             onSuggestionTap: (v) {
               showModalBottomSheet(
-                  context: context,
-                  isScrollControlled: true,
-                  builder: (context) => const WeatherBottomSheet());
+                context: context,
+              
+              //  backgroundColor: AppColor.kPrimaryColor2.withOpacity(0.5),
+              //   showDragHandle: true,
+                isScrollControlled: true,
+                builder: (context) => WeatherBottomSheet(
+                  city: v.item!,
+                ),
+              );
             },
           )
         ],

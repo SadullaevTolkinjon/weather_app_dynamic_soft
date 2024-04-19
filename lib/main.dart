@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app_dynamic/constants/navigator/navigator_const.dart';
-import 'package:weather_app_dynamic/presentation/search/search_page.dart';
 import 'package:weather_app_dynamic/utils/router/router.dart';
 import 'package:weather_app_dynamic/utils/theme/main_theme.dart';
 

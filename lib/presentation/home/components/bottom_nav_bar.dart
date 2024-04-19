@@ -19,7 +19,7 @@ builtBottomBar() {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home",),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
         ],
       );
     },

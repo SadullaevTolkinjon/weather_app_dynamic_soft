@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app_dynamic/di/injection.dart';
 import 'package:weather_app_dynamic/presentation/home/components/bottom_nav_bar.dart';
 import 'package:weather_app_dynamic/presentation/home/cubit/home_cubit.dart';
 import 'package:weather_app_dynamic/presentation/home/home_view.dart';
 import 'package:weather_app_dynamic/presentation/search/search_page.dart';
-import 'package:weather_app_dynamic/presentation/widgets/snacbar_widgets.dart';
 import 'package:weather_app_dynamic/utils/app_widgets/buildable.dart';
 
 class HomePage extends StatelessWidget {

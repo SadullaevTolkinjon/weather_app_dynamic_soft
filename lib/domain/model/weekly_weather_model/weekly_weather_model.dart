@@ -8,8 +8,8 @@ class WeeklyWeatherModel with _$WeeklyWeatherModel {
   const factory WeeklyWeatherModel(
     City? city,
     String? cod,
-    int? message,
-    int? cnt,
+    num? message,
+    num? cnt,
     List<ListElement>? list,
   ) = _WeeklyWeatherModel;
 
@@ -20,14 +20,14 @@ class WeeklyWeatherModel with _$WeeklyWeatherModel {
 @freezed
 class City with _$City {
   const factory City(
-    int? id,
+    num? id,
     String? name,
     Coord? coord,
     String? country,
-    int? population,
-    int? timezone,
-    int? sunrise,
-    int? sunset,
+    num? population,
+    num? timezone,
+    num? sunrise,
+    num? sunset,
   ) = _City;
 
   factory City.fromJson(Map<String, Object?> json) => _$CityFromJson(json);
@@ -46,13 +46,13 @@ class Coord with _$Coord {
 @freezed
 class ListElement with _$ListElement {
   const factory ListElement(
-    int? dt,
+    num? dt,
     WeatherMain? main,
     List<Weather>? weather,
     Clouds? clouds,
     Wind? wind,
-    int? visibility,
-    int? pop,
+    num? visibility,
+    num? pop,
     Sys? sys,
     String? dt_txt
   ) = _ListElement;

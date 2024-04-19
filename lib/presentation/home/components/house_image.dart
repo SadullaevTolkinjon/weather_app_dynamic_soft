@@ -8,7 +8,7 @@ class HouseImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 145,
+      bottom: 130,
       left: 0,
       right: 0,
       child: SizedBox(

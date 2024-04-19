@@ -13,8 +13,8 @@ _$WeeklyWeatherModelImpl _$$WeeklyWeatherModelImplFromJson(
           ? null
           : City.fromJson(json['city'] as Map<String, dynamic>),
       json['cod'] as String?,
-      json['message'] as int?,
-      json['cnt'] as int?,
+      json['message'] as num?,
+      json['cnt'] as num?,
       (json['list'] as List<dynamic>?)
           ?.map((e) => ListElement.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -31,16 +31,16 @@ Map<String, dynamic> _$$WeeklyWeatherModelImplToJson(
     };
 
 _$CityImpl _$$CityImplFromJson(Map<String, dynamic> json) => _$CityImpl(
-      json['id'] as int?,
+      json['id'] as num?,
       json['name'] as String?,
       json['coord'] == null
           ? null
           : Coord.fromJson(json['coord'] as Map<String, dynamic>),
       json['country'] as String?,
-      json['population'] as int?,
-      json['timezone'] as int?,
-      json['sunrise'] as int?,
-      json['sunset'] as int?,
+      json['population'] as num?,
+      json['timezone'] as num?,
+      json['sunrise'] as num?,
+      json['sunset'] as num?,
     );
 
 Map<String, dynamic> _$$CityImplToJson(_$CityImpl instance) =>
@@ -68,7 +68,7 @@ Map<String, dynamic> _$$CoordImplToJson(_$CoordImpl instance) =>
 
 _$ListElementImpl _$$ListElementImplFromJson(Map<String, dynamic> json) =>
     _$ListElementImpl(
-      json['dt'] as int?,
+      json['dt'] as num?,
       json['main'] == null
           ? null
           : WeatherMain.fromJson(json['main'] as Map<String, dynamic>),
@@ -81,8 +81,8 @@ _$ListElementImpl _$$ListElementImplFromJson(Map<String, dynamic> json) =>
       json['wind'] == null
           ? null
           : Wind.fromJson(json['wind'] as Map<String, dynamic>),
-      json['visibility'] as int?,
-      json['pop'] as int?,
+      json['visibility'] as num?,
+      json['pop'] as num?,
       json['sys'] == null
           ? null
           : Sys.fromJson(json['sys'] as Map<String, dynamic>),

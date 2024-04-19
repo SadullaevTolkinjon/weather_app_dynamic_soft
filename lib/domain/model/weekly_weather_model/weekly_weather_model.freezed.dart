@@ -22,8 +22,8 @@ WeeklyWeatherModel _$WeeklyWeatherModelFromJson(Map<String, dynamic> json) {
 mixin _$WeeklyWeatherModel {
   City? get city => throw _privateConstructorUsedError;
   String? get cod => throw _privateConstructorUsedError;
-  int? get message => throw _privateConstructorUsedError;
-  int? get cnt => throw _privateConstructorUsedError;
+  num? get message => throw _privateConstructorUsedError;
+  num? get cnt => throw _privateConstructorUsedError;
   List<ListElement>? get list => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,8 +41,8 @@ abstract class $WeeklyWeatherModelCopyWith<$Res> {
   $Res call(
       {City? city,
       String? cod,
-      int? message,
-      int? cnt,
+      num? message,
+      num? cnt,
       List<ListElement>? list});
 
   $CityCopyWith<$Res>? get city;
@@ -79,11 +79,11 @@ class _$WeeklyWeatherModelCopyWithImpl<$Res, $Val extends WeeklyWeatherModel>
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       cnt: freezed == cnt
           ? _value.cnt
           : cnt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       list: freezed == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
@@ -115,8 +115,8 @@ abstract class _$$WeeklyWeatherModelImplCopyWith<$Res>
   $Res call(
       {City? city,
       String? cod,
-      int? message,
-      int? cnt,
+      num? message,
+      num? cnt,
       List<ListElement>? list});
 
   @override
@@ -152,11 +152,11 @@ class __$$WeeklyWeatherModelImplCopyWithImpl<$Res>
       freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == cnt
           ? _value.cnt
           : cnt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
@@ -180,9 +180,9 @@ class _$WeeklyWeatherModelImpl implements _WeeklyWeatherModel {
   @override
   final String? cod;
   @override
-  final int? message;
+  final num? message;
   @override
-  final int? cnt;
+  final num? cnt;
   final List<ListElement>? _list;
   @override
   List<ListElement>? get list {
@@ -234,8 +234,8 @@ abstract class _WeeklyWeatherModel implements WeeklyWeatherModel {
   const factory _WeeklyWeatherModel(
       final City? city,
       final String? cod,
-      final int? message,
-      final int? cnt,
+      final num? message,
+      final num? cnt,
       final List<ListElement>? list) = _$WeeklyWeatherModelImpl;
 
   factory _WeeklyWeatherModel.fromJson(Map<String, dynamic> json) =
@@ -246,9 +246,9 @@ abstract class _WeeklyWeatherModel implements WeeklyWeatherModel {
   @override
   String? get cod;
   @override
-  int? get message;
+  num? get message;
   @override
-  int? get cnt;
+  num? get cnt;
   @override
   List<ListElement>? get list;
   @override
@@ -263,14 +263,14 @@ City _$CityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$City {
-  int? get id => throw _privateConstructorUsedError;
+  num? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   Coord? get coord => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
-  int? get population => throw _privateConstructorUsedError;
-  int? get timezone => throw _privateConstructorUsedError;
-  int? get sunrise => throw _privateConstructorUsedError;
-  int? get sunset => throw _privateConstructorUsedError;
+  num? get population => throw _privateConstructorUsedError;
+  num? get timezone => throw _privateConstructorUsedError;
+  num? get sunrise => throw _privateConstructorUsedError;
+  num? get sunset => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -283,14 +283,14 @@ abstract class $CityCopyWith<$Res> {
       _$CityCopyWithImpl<$Res, City>;
   @useResult
   $Res call(
-      {int? id,
+      {num? id,
       String? name,
       Coord? coord,
       String? country,
-      int? population,
-      int? timezone,
-      int? sunrise,
-      int? sunset});
+      num? population,
+      num? timezone,
+      num? sunrise,
+      num? sunset});
 
   $CoordCopyWith<$Res>? get coord;
 }
@@ -321,7 +321,7 @@ class _$CityCopyWithImpl<$Res, $Val extends City>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -337,19 +337,19 @@ class _$CityCopyWithImpl<$Res, $Val extends City>
       population: freezed == population
           ? _value.population
           : population // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       sunrise: freezed == sunrise
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       sunset: freezed == sunset
           ? _value.sunset
           : sunset // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
     ) as $Val);
   }
 
@@ -374,14 +374,14 @@ abstract class _$$CityImplCopyWith<$Res> implements $CityCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
+      {num? id,
       String? name,
       Coord? coord,
       String? country,
-      int? population,
-      int? timezone,
-      int? sunrise,
-      int? sunset});
+      num? population,
+      num? timezone,
+      num? sunrise,
+      num? sunset});
 
   @override
   $CoordCopyWith<$Res>? get coord;
@@ -410,7 +410,7 @@ class __$$CityImplCopyWithImpl<$Res>
       freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -426,19 +426,19 @@ class __$$CityImplCopyWithImpl<$Res>
       freezed == population
           ? _value.population
           : population // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == sunrise
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == sunset
           ? _value.sunset
           : sunset // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
     ));
   }
 }
@@ -453,7 +453,7 @@ class _$CityImpl implements _City {
       _$$CityImplFromJson(json);
 
   @override
-  final int? id;
+  final num? id;
   @override
   final String? name;
   @override
@@ -461,13 +461,13 @@ class _$CityImpl implements _City {
   @override
   final String? country;
   @override
-  final int? population;
+  final num? population;
   @override
-  final int? timezone;
+  final num? timezone;
   @override
-  final int? sunrise;
+  final num? sunrise;
   @override
-  final int? sunset;
+  final num? sunset;
 
   @override
   String toString() {
@@ -512,19 +512,19 @@ class _$CityImpl implements _City {
 
 abstract class _City implements City {
   const factory _City(
-      final int? id,
+      final num? id,
       final String? name,
       final Coord? coord,
       final String? country,
-      final int? population,
-      final int? timezone,
-      final int? sunrise,
-      final int? sunset) = _$CityImpl;
+      final num? population,
+      final num? timezone,
+      final num? sunrise,
+      final num? sunset) = _$CityImpl;
 
   factory _City.fromJson(Map<String, dynamic> json) = _$CityImpl.fromJson;
 
   @override
-  int? get id;
+  num? get id;
   @override
   String? get name;
   @override
@@ -532,13 +532,13 @@ abstract class _City implements City {
   @override
   String? get country;
   @override
-  int? get population;
+  num? get population;
   @override
-  int? get timezone;
+  num? get timezone;
   @override
-  int? get sunrise;
+  num? get sunrise;
   @override
-  int? get sunset;
+  num? get sunset;
   @override
   @JsonKey(ignore: true)
   _$$CityImplCopyWith<_$CityImpl> get copyWith =>
@@ -699,13 +699,13 @@ ListElement _$ListElementFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListElement {
-  int? get dt => throw _privateConstructorUsedError;
+  num? get dt => throw _privateConstructorUsedError;
   WeatherMain? get main => throw _privateConstructorUsedError;
   List<Weather>? get weather => throw _privateConstructorUsedError;
   Clouds? get clouds => throw _privateConstructorUsedError;
   Wind? get wind => throw _privateConstructorUsedError;
-  int? get visibility => throw _privateConstructorUsedError;
-  int? get pop => throw _privateConstructorUsedError;
+  num? get visibility => throw _privateConstructorUsedError;
+  num? get pop => throw _privateConstructorUsedError;
   Sys? get sys => throw _privateConstructorUsedError;
   String? get dt_txt => throw _privateConstructorUsedError;
 
@@ -722,13 +722,13 @@ abstract class $ListElementCopyWith<$Res> {
       _$ListElementCopyWithImpl<$Res, ListElement>;
   @useResult
   $Res call(
-      {int? dt,
+      {num? dt,
       WeatherMain? main,
       List<Weather>? weather,
       Clouds? clouds,
       Wind? wind,
-      int? visibility,
-      int? pop,
+      num? visibility,
+      num? pop,
       Sys? sys,
       String? dt_txt});
 
@@ -765,7 +765,7 @@ class _$ListElementCopyWithImpl<$Res, $Val extends ListElement>
       dt: freezed == dt
           ? _value.dt
           : dt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       main: freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
@@ -785,11 +785,11 @@ class _$ListElementCopyWithImpl<$Res, $Val extends ListElement>
       visibility: freezed == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       pop: freezed == pop
           ? _value.pop
           : pop // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       sys: freezed == sys
           ? _value.sys
           : sys // ignore: cast_nullable_to_non_nullable
@@ -859,13 +859,13 @@ abstract class _$$ListElementImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? dt,
+      {num? dt,
       WeatherMain? main,
       List<Weather>? weather,
       Clouds? clouds,
       Wind? wind,
-      int? visibility,
-      int? pop,
+      num? visibility,
+      num? pop,
       Sys? sys,
       String? dt_txt});
 
@@ -904,7 +904,7 @@ class __$$ListElementImplCopyWithImpl<$Res>
       freezed == dt
           ? _value.dt
           : dt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
@@ -924,11 +924,11 @@ class __$$ListElementImplCopyWithImpl<$Res>
       freezed == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == pop
           ? _value.pop
           : pop // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num?,
       freezed == sys
           ? _value.sys
           : sys // ignore: cast_nullable_to_non_nullable
@@ -952,7 +952,7 @@ class _$ListElementImpl implements _ListElement {
       _$$ListElementImplFromJson(json);
 
   @override
-  final int? dt;
+  final num? dt;
   @override
   final WeatherMain? main;
   final List<Weather>? _weather;
@@ -970,9 +970,9 @@ class _$ListElementImpl implements _ListElement {
   @override
   final Wind? wind;
   @override
-  final int? visibility;
+  final num? visibility;
   @override
-  final int? pop;
+  final num? pop;
   @override
   final Sys? sys;
   @override
@@ -1030,13 +1030,13 @@ class _$ListElementImpl implements _ListElement {
 
 abstract class _ListElement implements ListElement {
   const factory _ListElement(
-      final int? dt,
+      final num? dt,
       final WeatherMain? main,
       final List<Weather>? weather,
       final Clouds? clouds,
       final Wind? wind,
-      final int? visibility,
-      final int? pop,
+      final num? visibility,
+      final num? pop,
       final Sys? sys,
       final String? dt_txt) = _$ListElementImpl;
 
@@ -1044,7 +1044,7 @@ abstract class _ListElement implements ListElement {
       _$ListElementImpl.fromJson;
 
   @override
-  int? get dt;
+  num? get dt;
   @override
   WeatherMain? get main;
   @override
@@ -1054,9 +1054,9 @@ abstract class _ListElement implements ListElement {
   @override
   Wind? get wind;
   @override
-  int? get visibility;
+  num? get visibility;
   @override
-  int? get pop;
+  num? get pop;
   @override
   Sys? get sys;
   @override

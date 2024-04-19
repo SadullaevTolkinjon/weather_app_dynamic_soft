@@ -19,7 +19,9 @@ class HomeCubit extends BuildableCubit<HomeState, HomeBuildableState> {
   final MainRepository _repository;
   final MainPreference _preference;
   HomeCubit(this._repository, this._preference)
-      : super(const HomeBuildableState());
+      : super(const HomeBuildableState()) {
+    fetchCurrentWeather();
+  }
 
   changeTabs(int index) {
     build(
@@ -38,18 +40,20 @@ class HomeCubit extends BuildableCubit<HomeState, HomeBuildableState> {
         noLocalData: false,
       ),
     );
-    AppLatLong location = const TashkentLocation();
-    bool isAccess = await LocationService().checkPermission();
-    if (isAccess == true) {
-      location = await LocationService().getCurrentLocation();
-    } else {
-      await LocationService().requestPermission();
-    }
-    subscription = Connectivity().onConnectivityChanged.listen(
-      (List<ConnectivityResult> result) async {
-        if (result.contains(ConnectivityResult.mobile) ||
-            result.contains(ConnectivityResult.wifi)) {
-          try {
+
+    try {
+      AppLatLong location = const TashkentLocation();
+      bool isAccess = await LocationService().checkPermission();
+      if (isAccess == true) {
+        location = await LocationService().getCurrentLocation();
+      } else {
+        await LocationService().requestPermission();
+      }
+
+      subscription = Connectivity().onConnectivityChanged.listen(
+        (List<ConnectivityResult> result) async {
+          if (result.contains(ConnectivityResult.mobile) ||
+              result.contains(ConnectivityResult.wifi)) {
             final WeatherModel data = await _repository.fetchCurrentWeather(
               location.lat,
               location.long,
@@ -71,63 +75,51 @@ class HomeCubit extends BuildableCubit<HomeState, HomeBuildableState> {
                 weeklyWeather: weeklyWeatherData,
               ),
             );
-          } catch (e) {
-            build(
-              (buildable) => buildable.copyWith(
-                loading: false,
-                failed: true,
-                success: false,
-                isConnected: false,
-                noLocalData: false,
-                error: e.toString(),
-              ),
-            );
+          } else if (result.contains(ConnectivityResult.none)) {
+            String? localData = await _preference.getWeatherData();
+            String? weeklyLocalData = await _preference.getWeeklyWeatherData();
+            if (localData != null && weeklyLocalData != null) {
+              final WeatherModel weather =
+                  locator<MainRepository>().decodeWeatherData(localData);
+              final WeeklyWeatherModel weeklyWeather =
+                  locator<MainRepository>().decodeWeeklyData(weeklyLocalData);
+              build(
+                (buildable) => buildable.copyWith(
+                    data: weather,
+                    weeklyWeather: weeklyWeather,
+                    loading: false,
+                    success: true,
+                    failed: false,
+                    isConnected: true,
+                    noLocalData: false,
+                    error: "No internet ,You used local data"),
+              );
+            } else {
+              build(
+                (buildable) => buildable.copyWith(
+                    loading: false,
+                    success: false,
+                    failed: true,
+                    isConnected: true,
+                    noLocalData: true,
+                    error: "No Local data and No Internet connection"),
+              );
+            }
           }
-        } else if (result.contains(ConnectivityResult.none)) {
-          String? localData = await _preference.getWeatherData();
-          String? weeklyLocalData = await _preference.getWeeklyWeatherData();
-          if (localData != null && weeklyLocalData != null) {
-            final WeatherModel weather =
-                locator<MainRepository>().decodeWeatherData(localData);
-            final WeeklyWeatherModel weeklyWeather =
-                locator<MainRepository>().decodeWeeklyData(weeklyLocalData);
-            build(
-              (buildable) => buildable.copyWith(
-                  data: weather,
-                  weeklyWeather: weeklyWeather,
-                  loading: false,
-                  success: true,
-                  failed: false,
-                  isConnected: true,
-                  noLocalData: false,
-                  error: "No internet ,You used local data"),
-            );
-          } else {
-            build(
-              (buildable) => buildable.copyWith(
-                  loading: false,
-                  success: false,
-                  failed: true,
-                  isConnected: true,
-                  noLocalData: true,
-                  error: "No Local data and No Internet connection"),
-            );
-          }
-        }
-      },
-    );
-  }
-
-  selectHourlyWeeklyForecast(int index) {
-    build(
-      (buildable) => buildable.copyWith(
-        selected_forecast: index,
-        failed: false,
-        success: false,
-        noLocalData: false,
-        isConnected: false,
-      ),
-    );
+        },
+      );
+    } catch (e) {
+      build(
+        (buildable) => buildable.copyWith(
+          loading: false,
+          failed: true,
+          success: false,
+          isConnected: false,
+          noLocalData: false,
+          error: e.toString(),
+        ),
+      );
+    }
   }
 
   dispose() {
